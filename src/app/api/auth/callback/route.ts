@@ -16,7 +16,10 @@ export async function GET(req: NextRequest) {
 
   const { token } = registerResponse.data;
 
-  const redirectUrl = new URL("/", req.url);
+  const redirectUrl = new URL(
+    req.cookies.get("redirectTo")?.value || "/",
+    req.url
+  ); 
 
   return NextResponse.redirect(redirectUrl, {
     headers: {

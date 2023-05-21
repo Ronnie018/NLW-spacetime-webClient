@@ -5,7 +5,7 @@ const EmptyMemories = () => {
     <div className="flex h-full items-center justify-center">
       <p className="w-[360px] text-center leading-relaxed">
         Você ainda não registrou nenhuma lembrança, comece a{" "}
-        <Link href="/register" className="underline hover:text-gray-50">
+        <Link href="/memories/new" className="underline hover:text-gray-50">
           criar agora!
         </Link>
       </p>

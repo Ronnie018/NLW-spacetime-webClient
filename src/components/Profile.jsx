@@ -15,9 +15,12 @@ const Profile = () => {
       />
       <p className="max-w-[140px] text-sm leading-snug">
         {name} <br />{" "}
-        <Link href="" className="block text-red-300 hover:underline" >
+        <a
+          href="/api/auth/logout"
+          className="block cursor-pointer text-red-300 hover:underline"
+        >
           Sair
-        </Link>
+        </a>
       </p>
     </div>
   );
