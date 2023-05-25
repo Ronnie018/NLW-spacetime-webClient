@@ -1,7 +1,14 @@
+"use client";
+
 import { Camera, ChevronLeft } from "lucide-react";
+import { ChangeEvent, useState } from "react";
 import Link from "next/link";
+import FilePicker from "@components/FilePicker";
+import NewMemoryForm from "@components/NewMemoryForm";
 
 export default function NewMemory() {
+  const [media, setMedia] = useState(null as File | null);
+
   return (
     <div className="flex flex-1 flex-col gap-4">
       <Link
@@ -12,40 +19,7 @@ export default function NewMemory() {
         Voltar à timeline
       </Link>
 
-      <form className=" flex flex-1 flex-col gap-2 ">
-        <div className="item-center flex gap-4">
-          <label
-            htmlFor="media"
-            className="flex cursor-pointer items-center gap-1.5 text-sm text-gray-200 hover:text-gray-100"
-          >
-            <Camera className="h-3 w-3" /> Anexar mídia
-          </label>
-
-          <label
-            htmlFor="is_public"
-            className="flex items-center gap-1.5 text-sm text-gray-200 hover:text-gray-100"
-          >
-            <input
-              className="h-4 w-4 rounded border-gray-400 bg-gray-700 text-purple-500"
-              type="checkbox"
-              name="is_public"
-              id="is_public"
-              value="true"
-            />
-            tornar pública
-          </label>
-        </div>
-
-        <input type="file" id="media" className="invisible h-0 w-0" />
-
-        <textarea
-          name="content"
-          id="content"
-          spellCheck
-          className="w-full flex-1 resize-none rounded border-0 bg-transparent p-0 text-lg leading-relaxed text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-0"
-          placeholder="Fique livre para adicionar fotos, vídeos e relatos sobre esta experiência que você quer lembrar para sempre."
-        />
-      </form>
+      <NewMemoryForm />
     </div>
   );
 }
